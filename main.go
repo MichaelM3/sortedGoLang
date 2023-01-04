@@ -6,9 +6,12 @@ import (
 )
 
 func main() {
-    strArr := []string{"Oregon", "Massachussets", "Wisconsin", "Washington"} 
+    strArr := []string{"Oregon", "Massachussets", "Wisconsin", "Washington", "Appls", "Apple"} 
 
-    sort.Strings(strArr)
+    sort.Slice(strArr, func(i, j int) bool {
+        return len(strArr[i]) < len(strArr[j])
+    })
+
     fmt.Println(strArr)
     
 }
